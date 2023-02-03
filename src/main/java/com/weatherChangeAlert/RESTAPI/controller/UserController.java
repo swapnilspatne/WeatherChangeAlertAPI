@@ -4,13 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.weatherChangeAlert.RESTAPI.model.UserInputs;
 import com.weatherChangeAlert.RESTAPI.service.CollectWeatherInfoService;
 import com.weatherChangeAlert.RESTAPI.service.UserInputService;
 
-@RestController("/weatherApp")
+@RestController
+@RequestMapping("/weatherApp")
 public class UserController {
 
 	@Autowired
