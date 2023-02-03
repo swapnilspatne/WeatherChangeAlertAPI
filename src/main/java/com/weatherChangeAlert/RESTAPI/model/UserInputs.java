@@ -16,6 +16,15 @@ public class UserInputs {
 	private String location;
 	private String criteria;
 	private int tempareture;
+	private boolean notificationSent;
+
+	public boolean isNotificationSent() {
+		return notificationSent;
+	}
+
+	public void setNotificationSent(boolean notificationSent) {
+		this.notificationSent = notificationSent;
+	}
 
 	public Long getId() {
 		return id;

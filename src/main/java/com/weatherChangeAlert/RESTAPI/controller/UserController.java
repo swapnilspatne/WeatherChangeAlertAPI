@@ -12,20 +12,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.weatherChangeAlert.RESTAPI.model.UserInputs;
 import com.weatherChangeAlert.RESTAPI.repository.UserRepository;
+import com.weatherChangeAlert.RESTAPI.service.CollectWeatherInfoService;
 
 @RestController
 @RequestMapping("/weatherApp")
 public class UserController {
 
-	@Autowired
 	private UserRepository userRepository;
-	@Autowired
-	private WeatherCallController weatherCallController;
+	private CollectWeatherInfoService collectWeatherInfo;
 	
+	@Autowired
+	public UserController(UserRepository userRepository, CollectWeatherInfoService collectWeatherInfo) {
+		super();
+		this.userRepository = userRepository;
+		this.collectWeatherInfo = collectWeatherInfo;
+	}
+
 	@PostMapping("/userDetails")
 	@CrossOrigin
 	UserInputs newUser(@RequestBody UserInputs newUser) {
-		weatherCallController.getData(newUser.getLocation());
+		collectWeatherInfo.consumeAPI(newUser);
 		return userRepository.save(newUser);
 	}
 	

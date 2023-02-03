@@ -1,6 +1,6 @@
 package com.weatherChangeAlert.RESTAPI.model;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,9 +13,27 @@ public class WeatherData {
 	@GeneratedValue
 	private Long id;
 	private String location;
-	private Date dateTime;
+	private double longitude;
+	private double latitude;
+	private LocalDateTime dateTime;
 	private double tempareture;
 	private String source;
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
 
 	public Long getId() {
 		return id;
@@ -25,11 +43,11 @@ public class WeatherData {
 		this.id = id;
 	}
 
-	public Date getDateTime() {
+	public LocalDateTime getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(Date dateTime) {
+	public void setDateTime(LocalDateTime dateTime) {
 		this.dateTime = dateTime;
 	}
 
